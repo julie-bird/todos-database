@@ -21,12 +21,12 @@ todoRoutes.post("/todos", (req, res) => {
         });
 });
 
-// route
-// todoRoutes.put("/todos/:id", (req, res) => {
-//     pool.query("UPDATE todos SET todo=$1::int WHERE id=$2::int", [req.body.todo, req.params.id]).then(() => {
-//         res.json(req.body);
-//     })
-// });
+// EDIT
+todoRoutes.put("/todos/:id", (req, res) => {
+    pool.query("UPDATE todos SET completed=$1::int WHERE id=$2::int", [req.body.completed, req.params.id]).then(() => {
+        res.json(req.body);
+    })
+});
 
 // DELETE
 todoRoutes.delete("/todos/:id", (req, res) => {
